@@ -1,0 +1,83 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/zadnji-klic": {
+      "get": {
+        "summary": "Get the last called endpoint",
+        "responses": {
+          "200": {
+            "description": "Last called endpoint",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/najpogostejsi-klic": {
+      "get": {
+        "summary": "Get the most frequently called service",
+        "responses": {
+          "200": {
+            "description": "Most frequently called service",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/vsi-klici": {
+      "get": {
+        "summary": "Get the count of individual calls for each service",
+        "responses": {
+          "200": {
+            "description": "Count of individual calls for each service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/posodobi": {
+      "post": {
+        "summary": "Update data with the called service",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "klicanaStoritev",
+            "description": "The called service",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "klicanaStoritev": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data updated successfully",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Invalid request body",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
